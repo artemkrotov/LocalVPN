@@ -16,6 +16,7 @@
 
 package xyz.hexene.localvpn;
 
+import android.app.Application;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.VpnService;
@@ -37,6 +38,8 @@ import java.util.concurrent.Executors;
 
 public class LocalVPNService extends VpnService
 {
+
+    public static Application application;
     private static final String TAG = LocalVPNService.class.getSimpleName();
     private static final String VPN_ADDRESS = "10.0.0.2"; // Only IPv4 support for now
     private static final String VPN_ROUTE = "0.0.0.0"; // Intercept everything
@@ -60,6 +63,10 @@ public class LocalVPNService extends VpnService
     @Override
     public void onCreate()
     {
+
+
+        application = this.getApplication();
+
         super.onCreate();
         isRunning = true;
         setupVPN();

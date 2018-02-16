@@ -79,6 +79,7 @@ public class TCB
     public TCB(String ipAndPort, long mySequenceNum, long theirSequenceNum, long myAcknowledgementNum, long theirAcknowledgementNum,
                SocketChannel channel, Packet referencePacket)
     {
+        System.out.println("TCB");
         this.ipAndPort = ipAndPort;
 
         this.mySequenceNum = mySequenceNum;
@@ -123,4 +124,23 @@ public class TCB
             // Ignore
         }
     }
+
+    @Override
+    public String toString() {
+        return "TCB{" +
+                "ipAndPort='" + ipAndPort + '\'' +
+                ", mySequenceNum=" + mySequenceNum +
+                ", theirSequenceNum=" + theirSequenceNum +
+                ", myAcknowledgementNum=" + myAcknowledgementNum +
+                ", theirAcknowledgementNum=" + theirAcknowledgementNum +
+                ", status=" + status +
+                ", referencePacket=" + referencePacket +
+                ", channel=" + channel +
+                ", waitingForNetworkData=" + waitingForNetworkData +
+                ", selectionKey=" + selectionKey +
+                '}';
+    }
 }
+
+
+
